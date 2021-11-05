@@ -14,5 +14,5 @@ class MainViewModel(private val uiApi: UiApi): ViewModel() {
         }
     }
 
-    val uiComponents = MutableStateFlow("")
+    val uiComponents = MutableStateFlow("22")
 }
