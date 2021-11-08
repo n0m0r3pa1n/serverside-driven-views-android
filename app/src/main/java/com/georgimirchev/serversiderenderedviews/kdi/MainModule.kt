@@ -5,5 +5,5 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 fun provideMainModule() = module {
-    viewModel { MainViewModel(uiApi = get()) }
+    viewModel { MainViewModel(uiComponentDataRepository = get()) }
 }

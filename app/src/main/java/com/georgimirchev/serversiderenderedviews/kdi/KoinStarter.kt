@@ -1,5 +1,7 @@
 package com.georgimirchev.serversiderenderedviews.kdi
 
+import com.georgimirchev.core.di.provideCoreModule
+import com.georgimirchev.domain.di.provideDomainModule
 import com.georgimirchev.network.di.provideNetworkingModule
 import com.georgimirchev.serversiderenderedviews.ServerSideRenderedApplication
 import org.koin.android.ext.koin.androidContext
@@ -14,8 +16,10 @@ fun ServerSideRenderedApplication.setupKoin() {
 
         modules(
             listOf(
+                provideCoreModule(),
                 provideNetworkingModule(),
-                provideMainModule()
+                provideMainModule(),
+                provideDomainModule()
             )
         )
     }

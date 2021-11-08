@@ -10,3 +10,5 @@ rootProject.name = "My Application"
 include ':app'
 include ':app:networking'
 include ':network'
+include ':domain'
+include ':core'
