@@ -2,6 +2,7 @@ package com.georgimirchev.serversiderenderedviews
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.georgimirchev.domain.componentdata.UiComponentData
 import com.georgimirchev.domain.repository.UiComponentDataRepository
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -11,9 +12,10 @@ class MainViewModel(private val uiComponentDataRepository: UiComponentDataReposi
     init {
         viewModelScope.launch {
             val results = uiComponentDataRepository.getUiComponentsData()
-            uiComponentsData.emit(results.toString())
+            uiComponentsData.emit(results)
+
         }
     }
 
-    val uiComponentsData = MutableSharedFlow<String>(replay = 1, onBufferOverflow = BufferOverflow.DROP_LATEST)
+    val uiComponentsData = MutableSharedFlow<List<UiComponentData>>(replay = 1, onBufferOverflow = BufferOverflow.DROP_LATEST)
 }
