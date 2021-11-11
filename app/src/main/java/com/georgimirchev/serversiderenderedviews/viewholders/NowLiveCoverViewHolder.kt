@@ -9,12 +9,12 @@ class NowLiveCoverViewHolder(
     viewNowLiveBinding: ViewNowLiveBinding,
     viewHolderEventsHandler: ViewHolderEventsHandler
 ) : DynamicViewHolder<LiveCoverUiData, ViewNowLiveBinding>(viewNowLiveBinding) {
-    private val nowLiveCoverAdapter = NowLiveCoverAdapter()
+    private val nowLiveCoverAdapter = NowLiveCoverAdapter(viewHolderEventsHandler)
     override fun bind(uiData: LiveCoverUiData) {
         with (binding.rvNowLive) {
             layoutManager = LinearLayoutManager(binding.root.context, LinearLayoutManager.HORIZONTAL, false)
             adapter = nowLiveCoverAdapter
-            val urls = uiData.data.values.map { it.map { it.images.first().url } }.flatten()
+            val urls = uiData.data.values.map { it.map { it.channelId.toString() to it.images.first().url } }.flatten()
             nowLiveCoverAdapter.setItems(urls)
         }
     }

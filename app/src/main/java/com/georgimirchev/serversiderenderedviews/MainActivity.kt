@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.georgimirchev.serversiderenderedviews.events.LiveCoverClickEvent
 import com.georgimirchev.serversiderenderedviews.stateflow.observeInLifecycle
 import kotlinx.coroutines.flow.onEach
 import org.koin.android.ext.android.inject
@@ -35,7 +36,13 @@ class MainActivity : AppCompatActivity() {
             .observeInLifecycle(this)
 
         serverDrivenComponentsAdapter.uiEvents
-            .onEach { Toast.makeText(this, "$it", Toast.LENGTH_SHORT).show() }
+            .onEach {
+                val text = when (it) {
+                    is LiveCoverClickEvent -> it.liveCoverText
+                    else -> it.javaClass.name
+                }
+                Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
+            }
             .observeInLifecycle(this)
     }
 }
