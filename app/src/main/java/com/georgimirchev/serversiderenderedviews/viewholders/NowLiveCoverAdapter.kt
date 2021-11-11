@@ -24,7 +24,7 @@ class NowLiveCoverAdapter(private val viewHolderEventsHandler: ViewHolderEventsH
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(imageUrls[position].second)
+        holder.bind(imageUrls[position].first, imageUrls[position].second)
     }
 
     override fun getItemCount(): Int = imageUrls.size
@@ -37,8 +37,8 @@ class NowLiveCoverAdapter(private val viewHolderEventsHandler: ViewHolderEventsH
     class ViewHolder(
         val binding: ItemNowLiveCoverBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(url: String) {
-            Timber.d("### $url")
+        fun bind(id: String, url: String) {
+            Timber.d("### $id $url")
             Glide.with(binding.root.context)
                 .load("https://cdn.shopify.com/s/files/1/1061/1924/products/Dog_Emoji_grande.png")
                 .into(binding.cover)

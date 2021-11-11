@@ -14,7 +14,9 @@ class NowLiveCoverViewHolder(
         with (binding.rvNowLive) {
             layoutManager = LinearLayoutManager(binding.root.context, LinearLayoutManager.HORIZONTAL, false)
             adapter = nowLiveCoverAdapter
-            val urls = uiData.data.values.map { it.map { it.channelId.toString() to it.images.first().url } }.flatten()
+            val urls = uiData.data.values.flatten().map {
+                it.channelId.toString() to (it.images.firstOrNull()?.url ?: "")
+            }
             nowLiveCoverAdapter.setItems(urls)
         }
     }
