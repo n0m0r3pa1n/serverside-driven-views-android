@@ -3,6 +3,7 @@ package com.georgimirchev.network.di
 import com.georgimirchev.network.BuildConfig
 import com.georgimirchev.network.adapters.AlwaysSerializeNullsFactory
 import com.georgimirchev.network.adapters.DateTimeMoshiAdapter
+import com.georgimirchev.network.api.EpgApi
 import com.georgimirchev.network.api.UiApi
 import com.georgimirchev.network.api.VideoApi
 import com.squareup.moshi.Moshi
@@ -49,6 +50,12 @@ fun provideNetworkingModule() = module {
         get<Retrofit>().newBuilder()
         .build()
         .create(UiApi::class.java)
+    }
+
+    single {
+        get<Retrofit>().newBuilder()
+            .build()
+            .create(EpgApi::class.java)
     }
 
     single {

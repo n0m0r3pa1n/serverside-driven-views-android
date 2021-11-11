@@ -28,8 +28,6 @@ class MainActivity : AppCompatActivity() {
             .uiComponentsData
             .onEach {
                 serverDrivenComponentsAdapter.setItems(it)
-
-                Toast.makeText(this, "Content is here: $it", Toast.LENGTH_SHORT).show()
                 // Should we handle here Compose views that have their own ViewModel
                 // And each ViewModel loads data by using the DisposableEffect from here
                 // https://medium.com/nerd-for-tech/handling-lifecycle-events-on-jetpack-compose-f4f53de41f0a

@@ -5,7 +5,10 @@
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.3138888888888889" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.21458333333333332" />
+        <entry key="app/src/main/res/layout/item_now_live_cover.xml" value="0.21510416666666668" />
         <entry key="app/src/main/res/layout/view_detailed_video_stage.xml" value="0.23324275362318841" />
+        <entry key="app/src/main/res/layout/view_now_live.xml" value="0.21510416666666668" />
+        <entry key="app/src/main/res/layout/view_now_live_cover.xml" value="0.21510416666666668" />
       </map>
     </option>
   </component>
